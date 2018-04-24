@@ -1,0 +1,2 @@
+#stop the program from commiting the node modules
+/node_modules

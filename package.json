@@ -1,0 +1,25 @@
+{
+  "name": "nodeblog",
+  "version": "1.0.0",
+  "description": "A simple blog utilizing the mean stack",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "A",
+    "blog",
+    "that",
+    "is",
+    "built",
+    "with",
+    "mean",
+    "stack"
+  ],
+  "author": "Darrel Idiagbor",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
