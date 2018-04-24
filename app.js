@@ -1,4 +1,5 @@
 //C:\users\DELL\workspace\nodeblog
+require('./api/data/db');
 var express = require('express');
 var app = express();
 var path = require('path');
