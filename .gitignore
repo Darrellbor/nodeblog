@@ -1,2 +1,5 @@
-#stop the program from commiting the node modules
+#stop the program from commiting the node modules in the main directory for nodejs and expressjs
 /node_modules
+
+#stop the program from commiting the node modules in the client directory for angular 4
+/client/node_modules
