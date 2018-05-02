@@ -7,6 +7,10 @@
     "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Darrellbor/nodeblog.git"
+  },
   "keywords": [
     "A",
     "blog",
@@ -19,6 +23,10 @@
   ],
   "author": "Darrel Idiagbor",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Darrellbor/nodeblog/issues"
+  },
+  "homepage": "https://github.com/Darrellbor/nodeblog#readme",
   "dependencies": {
     "body-parser": "^1.18.2",
     "express": "^4.16.3",
