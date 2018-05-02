@@ -32,6 +32,9 @@ process.on('SIGTERM', function() {
 process.once('SIGUSR2', function() {
     mongoose.connection.close(function() {
         console.log('mongoose disconnected through app termination!');
-        process.kil;(process.pid, 'SIGUSR2');
+        process.kill(process.pid, 'SIGUSR2');
     });
 });
+
+//bring in the schemas and models
+require('./blogs.model.js');
