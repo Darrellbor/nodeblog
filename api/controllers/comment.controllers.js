@@ -97,6 +97,13 @@ var _addComment = function(req, res, blog) {
 module.exports.commentAddOne = function(req, res) {
     var blogId = req.params.blogId;
 
+    if(!req.body.user_id || !req.body.name || !req.body.comment) {
+        res 
+            .status(400)
+            .json({message: 'Please ensure all fields are filled '})
+        return;
+    }
+
     Blog
         .findById(blogId)
         .select('comments')
@@ -130,6 +137,13 @@ module.exports.commentAddOne = function(req, res) {
 module.exports.commentUpdateOne = function(req, res) {
     var blogId = req.params.blogId;
     var commentId = req.params.commentId;
+
+    if(!req.body.comment) {
+        res 
+            .status(400)
+            .json({message: 'Comment cannot be empty!'})
+        return;
+    }
 
     Blog
         .findById(blogId)

@@ -95,6 +95,14 @@ var _splitArray = function(input) {
 }
 
 module.exports.blogAddOne = function(req, res) {
+
+   if(!req.body.title || !req.body.preview || !req.body.content || !req.body.categories || !req.body.author_id || !req.body.name) {
+        res 
+            .status(400)
+            .json({message: 'Please ensure all fields are filled '})
+        return;
+   }
+
    Blog
         .create({
             title: req.body.title,
@@ -167,6 +175,11 @@ module.exports.blogUpdateOne = function(req, res) {
                     suppliedData = {
                         totalLikes: updateLike
                     }
+                } else if(!req.body.title || !req.body.preview || !req.body.content || !req.body.categories) {
+                        res 
+                            .status(400)
+                            .json({message: 'Please ensure all fields are filled '})
+                        return;
                 }
                 
 
