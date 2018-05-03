@@ -37,4 +37,5 @@ process.once('SIGUSR2', function() {
 });
 
 //bring in the schemas and models
+require('./users.model.js');
 require('./blogs.model.js');

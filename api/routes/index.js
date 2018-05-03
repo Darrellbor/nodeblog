@@ -3,11 +3,12 @@ var router = express.Router();
 
 var blogCtrl = require('../controllers/blog.controllers');
 var commentCtrl = require('../controllers/comment.controllers');
+var userCtrl = require('../controllers/user.controllers');
 
 router
     .route('/blogs')
     .get(blogCtrl.blogGetAll)
-    .post(blogCtrl.blogAddOne);
+    .post(userCtrl.authenticate, blogCtrl.blogAddOne);
 
 router
     .route('/blog/:blogId')
@@ -27,5 +28,15 @@ router
     .get(commentCtrl.commentGetOne)
     .put(commentCtrl.commentUpdateOne)
     .delete(commentCtrl.commentDeleteOne);
+
+//User routes
+
+router
+    .route('/user/register')
+    .post(userCtrl.registerUser);
+
+router 
+    .route('/user/login')
+    .post(userCtrl.loginUser);
 
 module.exports = router;
