@@ -13,21 +13,21 @@ router
 router
     .route('/blog/:blogId')
     .get(blogCtrl.blogGetOne)
-    .put(blogCtrl.blogUpdateOne)
-    .delete(blogCtrl.blogDeleteOne);
+    .put(userCtrl.authenticate, blogCtrl.blogUpdateOne)
+    .delete(userCtrl.authenticate, blogCtrl.blogDeleteOne);
 
 //Comment routes
 
 router
     .route('/blog/:blogId/comment')
     .get(commentCtrl.commentGetAll)
-    .post(commentCtrl.commentAddOne);
+    .post(userCtrl.authenticate, commentCtrl.commentAddOne);
 
 router
     .route('/blog/:blogId/comment/:commentId')
     .get(commentCtrl.commentGetOne)
-    .put(commentCtrl.commentUpdateOne)
-    .delete(commentCtrl.commentDeleteOne);
+    .put(userCtrl.authenticate, commentCtrl.commentUpdateOne)
+    .delete(userCtrl.authenticate, commentCtrl.commentDeleteOne);
 
 //User routes
 

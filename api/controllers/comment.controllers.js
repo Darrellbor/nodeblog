@@ -75,8 +75,8 @@ module.exports.commentGetOne = function(req, res) {
 var _addComment = function(req, res, blog) {
     blog.comments.push({
         commentBy: {
-            user_id: req.body.user_id,
-            name: req.body.name
+            user_id: req.user._id,
+            name: req.user.name
         },
         comment: req.body.comment
     });
@@ -97,7 +97,7 @@ var _addComment = function(req, res, blog) {
 module.exports.commentAddOne = function(req, res) {
     var blogId = req.params.blogId;
 
-    if(!req.body.user_id || !req.body.name || !req.body.comment) {
+    if(!req.body.comment) {
         res 
             .status(400)
             .json({message: 'Please ensure all fields are filled '})

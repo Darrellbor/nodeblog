@@ -96,7 +96,7 @@ var _splitArray = function(input) {
 
 module.exports.blogAddOne = function(req, res) {
 
-   if(!req.body.title || !req.body.preview || !req.body.content || !req.body.categories || !req.body.author_id || !req.body.name) {
+   if(!req.body.title || !req.body.preview || !req.body.content || !req.body.categories) {
         res 
             .status(400)
             .json({message: 'Please ensure all fields are filled '})
@@ -111,8 +111,8 @@ module.exports.blogAddOne = function(req, res) {
             totalLikes: 0,
             categories: _splitArray(req.body.categories),
             author: {
-                author_id: req.body.author_id,
-                name: req.body.name
+                author_id: req.user._id,
+                name: req.user.name
             }     
         }, function(err, blog) {
             if(err) {
@@ -171,6 +171,12 @@ module.exports.blogUpdateOne = function(req, res) {
                 }
 
                 if(req.body && req.body.like) {
+                    if(req.user._id === doc.author.author_id) {
+                        res 
+                            .status(403)
+                            .json({"message": "You cannot like your own blog post!"})
+                        return;
+                    }
                     var updateLike = doc.totalLikes + parseInt(req.body.like, 10);
                     suppliedData = {
                         totalLikes: updateLike
