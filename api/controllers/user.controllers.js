@@ -10,7 +10,9 @@ module.exports.registerUser = function(req, res) {
     if(!req.body.email || !req.body.name || !req.body.password) {
         res 
             .status(400)
-            .json({message: 'Please ensure all fields are filled '})
+            .json({
+                message: 'Please ensure all fields are filled'
+            })
         return;
     }
 
@@ -23,7 +25,10 @@ module.exports.registerUser = function(req, res) {
             if(err) {
                 res
                     .status(400)
-                    .json(err)
+                    .json({
+                        err: err, 
+                        message: "An error occured!"
+                    })
             } else {
                 res
                     .status(201)
@@ -39,7 +44,9 @@ module.exports.loginUser = function(req, res) {
     if(!req.body.email || !req.body.password) {
         res 
             .status(400)
-            .json({message: 'Please ensure all fields are filled '})
+            .json({
+                message: 'Please ensure all fields are filled'
+            })
         return;
     }
 
@@ -51,7 +58,10 @@ module.exports.loginUser = function(req, res) {
             if(err) {
                 res
                     .status(400)
-                    .json(err)
+                    .json({
+                        err: err, 
+                        message: "An error occured!"
+                    })
             } else {
                 if(!user) {
                     res
@@ -83,7 +93,10 @@ module.exports.userProfile = function(req, res) {
             if(err) {
                 res
                     .status(500)
-                    .json(err)
+                    .json({
+                        err: err, 
+                        message: "An error occured!"
+                    })
             } else if(!user) {
                 res
                     .status(400)
@@ -106,7 +119,10 @@ module.exports.authenticate = function(req, res, next) {
                 console.log(err);
                 res
                     .status(401)
-                    .json(err)
+                    .json({
+                        err: err, 
+                        message: "An error occured!"
+                    })
             } else {
                 console.log('Authentication successfull');
                 req.user = {
@@ -119,6 +135,6 @@ module.exports.authenticate = function(req, res, next) {
     } else {
         res
             .status(403)
-            .json('No token provided!')
+            .json({message: 'No token provided!'})
     }
 }

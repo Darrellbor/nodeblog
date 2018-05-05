@@ -47,7 +47,10 @@ module.exports.blogGetAll = function(req, res) {
                 console.log('Error finding blogs');
                 res
                     .status(500)
-                    .json(err)
+                    .json({
+                        err: err, 
+                        message: "An error occured!"
+                    })
             } else {
                 console.log('Found blogs', blogs.length);
                 res
@@ -71,7 +74,10 @@ module.exports.blogGetOne = function(req, res) {
             if(err) {
                 console.log('Error finding blog');
                 response.status = 500;
-                response.message = err;
+                response.message = {
+                    err: err, 
+                    message: "An error occured!"
+                };
             } else if(!doc) {
                 response.status = 404;
                 response.message = {
@@ -118,7 +124,10 @@ module.exports.blogAddOne = function(req, res) {
             if(err) {
                 res 
                     .status(400)
-                    .json(err)
+                    .json({
+                        err: err, 
+                        message: "An error occured!"
+                    })
             } else {
                 res
                     .status(201)
@@ -142,7 +151,10 @@ module.exports.blogUpdateOne = function(req, res) {
             if(err) {
                 console.log('Error finding blog');
                 response.status = 500;
-                response.message = err;
+                response.message = {
+                    err: err, 
+                    message: "An error occured!"
+                };
             } else if(!doc) {
                 response.status = 404;
                 response.message = {
@@ -159,7 +171,9 @@ module.exports.blogUpdateOne = function(req, res) {
                 if(req.body.like && isNaN(req.body.like)) {
                     res 
                         .status(400)
-                        .json({"message": "Please make sure that like is a numerical value"})
+                        .json({
+                            message: "Please make sure that like is a numerical value"
+                        })
                     return;
                 }
 
@@ -174,7 +188,9 @@ module.exports.blogUpdateOne = function(req, res) {
                     if(req.user._id === doc.author.author_id) {
                         res 
                             .status(403)
-                            .json({"message": "You cannot like your own blog post!"})
+                            .json({
+                                message: "You cannot like your own blog post!"
+                            })
                         return;
                     }
                     var updateLike = doc.totalLikes + parseInt(req.body.like, 10);
@@ -196,7 +212,10 @@ module.exports.blogUpdateOne = function(req, res) {
                         if(err) {
                             res 
                                 .status(500)
-                                .json(err)
+                                .json({
+                                    err: err, 
+                                    message: "An error occured!"
+                                })
                         } else {
                             res 
                                 .status(204)
@@ -217,7 +236,10 @@ module.exports.blogDeleteOne = function(req, res) {
             if(err) {
                 res
                     .status(404)
-                    .json(err)
+                    .json({
+                        err: err, 
+                        message: "An error occured!"
+                    })
             } else {
                 console.log('Blog deleted id:', blogId);
                 res

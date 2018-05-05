@@ -17,7 +17,10 @@ module.exports.commentGetAll = function(req, res) {
             if(err) {
                 console.log('Error finding comments');
                 response.status = 500;
-                response.message = err;
+                response.message = {
+                    err: err, 
+                    message: "An error occured!"
+                };
             } else if(!doc) {
                 response.status = 404;
                 response.message = {
@@ -51,7 +54,10 @@ module.exports.commentGetOne = function(req, res) {
             if(err) {
                 console.log('Error finding comments');
                 response.status = 500;
-                response.message = err;
+                response.message = {
+                    err: err, 
+                    message: "An error occured!"
+                };
             } else if(!blog) {
                 response.status = 404;
                 response.message = {
@@ -85,7 +91,10 @@ var _addComment = function(req, res, blog) {
         if(err) {
             res
                 .status(500)
-                .json(err)
+                .json({
+                    err: err,
+                    message: "An error occured!"
+                })
         } else {
             res 
                 .status(201)
@@ -115,7 +124,10 @@ module.exports.commentAddOne = function(req, res) {
             if(err) {
                 console.log('Error finding comments');
                 response.status = 500;
-                response.message = err;
+                response.message = {
+                    err: err, 
+                    message: "An error occured!"
+                };
             } else if(!doc) {
                 response.status = 404;
                 response.message = {
@@ -157,7 +169,10 @@ module.exports.commentUpdateOne = function(req, res) {
             if(err) {
                 console.log('Error finding comments');
                 response.status = 500;
-                response.message = err;
+                response.message = {
+                    err: err, 
+                    message: "An error occured!"
+                };
             } else if(!blog) {
                 response.status = 404;
                 response.message = {
@@ -181,7 +196,10 @@ module.exports.commentUpdateOne = function(req, res) {
                     if(err) {
                         res 
                             .status(500)
-                            .json(err)
+                            .json({
+                                err: err, 
+                                message: "An error occured!"
+                            })
                     } else {
                         res 
                             .status(204)
@@ -210,7 +228,10 @@ module.exports.commentDeleteOne = function(req, res) {
             if(err) {
                 console.log('Error finding comments');
                 response.status = 500;
-                response.message = err;
+                response.message = {
+                    err: err, 
+                    message: "An error occured!"
+                };
             } else if(!blog) {
                 response.status = 404;
                 response.message = {
@@ -233,7 +254,10 @@ module.exports.commentDeleteOne = function(req, res) {
                     if(err) {
                         res 
                             .status(500)
-                            .json(err)
+                            .json({
+                                err: err, 
+                                message: "An error occured!"
+                            })
                     } else {
                         res 
                             .status(204)
