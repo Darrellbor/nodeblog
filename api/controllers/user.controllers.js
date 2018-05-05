@@ -75,6 +75,27 @@ module.exports.loginUser = function(req, res) {
         });
 }
 
+module.exports.userProfile = function(req, res) {
+    User
+        .findOne({ _id: req.user._id })
+        .select("email name ")
+        .exec(function(err, user) {
+            if(err) {
+                res
+                    .status(500)
+                    .json(err)
+            } else if(!user) {
+                res
+                    .status(400)
+                    .json({message: "User not found!"})
+            } else {
+                res
+                    .status(200)
+                    .json(user)
+            }
+        });
+}
+
 module.exports.authenticate = function(req, res, next) {
     var headerExists = req.headers.authorization;
     

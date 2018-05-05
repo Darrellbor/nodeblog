@@ -39,4 +39,8 @@ router
     .route('/user/login')
     .post(userCtrl.loginUser);
 
+router 
+    .route('/user/profile')
+    .get(userCtrl.authenticate, userCtrl.userProfile);
+
 module.exports = router;
