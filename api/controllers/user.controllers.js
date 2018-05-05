@@ -26,7 +26,7 @@ module.exports.registerUser = function(req, res) {
                 res
                     .status(400)
                     .json({
-                        err: err, 
+                        err, 
                         message: "An error occured!"
                     })
             } else {
@@ -59,7 +59,7 @@ module.exports.loginUser = function(req, res) {
                 res
                     .status(400)
                     .json({
-                        err: err, 
+                        err, 
                         message: "An error occured!"
                     })
             } else {
@@ -88,13 +88,13 @@ module.exports.loginUser = function(req, res) {
 module.exports.userProfile = function(req, res) {
     User
         .findOne({ _id: req.user._id })
-        .select("email name ")
+        .select("email name")
         .exec(function(err, user) {
             if(err) {
                 res
                     .status(500)
                     .json({
-                        err: err, 
+                        err, 
                         message: "An error occured!"
                     })
             } else if(!user) {
@@ -120,7 +120,7 @@ module.exports.authenticate = function(req, res, next) {
                 res
                     .status(401)
                     .json({
-                        err: err, 
+                        err, 
                         message: "An error occured!"
                     })
             } else {

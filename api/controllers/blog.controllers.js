@@ -48,7 +48,7 @@ module.exports.blogGetAll = function(req, res) {
                 res
                     .status(500)
                     .json({
-                        err: err, 
+                        err, 
                         message: "An error occured!"
                     })
             } else {
@@ -75,7 +75,7 @@ module.exports.blogGetOne = function(req, res) {
                 console.log('Error finding blog');
                 response.status = 500;
                 response.message = {
-                    err: err, 
+                    err, 
                     message: "An error occured!"
                 };
             } else if(!doc) {
@@ -125,7 +125,7 @@ module.exports.blogAddOne = function(req, res) {
                 res 
                     .status(400)
                     .json({
-                        err: err, 
+                        err, 
                         message: "An error occured!"
                     })
             } else {
@@ -152,7 +152,7 @@ module.exports.blogUpdateOne = function(req, res) {
                 console.log('Error finding blog');
                 response.status = 500;
                 response.message = {
-                    err: err, 
+                    err, 
                     message: "An error occured!"
                 };
             } else if(!doc) {
@@ -213,7 +213,7 @@ module.exports.blogUpdateOne = function(req, res) {
                             res 
                                 .status(500)
                                 .json({
-                                    err: err, 
+                                    err, 
                                     message: "An error occured!"
                                 })
                         } else {
@@ -237,7 +237,7 @@ module.exports.blogDeleteOne = function(req, res) {
                 res
                     .status(404)
                     .json({
-                        err: err, 
+                        err, 
                         message: "An error occured!"
                     })
             } else {

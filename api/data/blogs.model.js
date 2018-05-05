@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 var commentSchema = new mongoose.Schema({
     comment: {
         type: String,
-        required: true
+        required: [true, "please enter your comment!"]
     },
     commentBy: {
         user_id: mongoose.Schema.Types.ObjectId,
@@ -21,12 +21,12 @@ var commentSchema = new mongoose.Schema({
 var blogSchema = new mongoose.Schema({
     title: {
         type: String,
-        required: true
+        required: [true, "A title must be provided for blog creation!"]
     },
     preview: String,
     content: {
         type: String,
-        required: true
+        required: [true, "Content must be provided for blog creation!"]
     },
     totalLikes: Number,
     categories: [String],
