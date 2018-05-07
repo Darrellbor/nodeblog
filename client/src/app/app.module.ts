@@ -10,13 +10,23 @@ import { HomeComponent } from './components/home/home.component';
 import { BlogService } from './services/blog.service';
 import { BlogResolverService } from './guards/blogs-resolver.service';
 import { FooterComponent } from './components/footer/footer.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { BlogDetailsComponent } from './components/blog-details/blog-details.component';
+import { AddUpComponent } from './add-up/add-up.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     HomeComponent,
-    FooterComponent
+    FooterComponent,
+    LoginComponent,
+    RegisterComponent,
+    ProfileComponent,
+    BlogDetailsComponent,
+    AddUpComponent
   ],
   imports: [
     BrowserModule,
