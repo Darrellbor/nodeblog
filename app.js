@@ -3,10 +3,13 @@ require('./api/data/db');
 var express = require('express');
 var app = express();
 var path = require('path');
+var cors = require('cors');
 var routes = require('./api/routes');
 var bodyParser = require('body-parser');
 
 app.set('port', 3000);
+
+app.use(cors());
 
 app.use(express.static(path.join(__dirname, 'public')));
 
