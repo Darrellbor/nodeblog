@@ -130,7 +130,7 @@ module.exports.authenticate = function(req, res, next) {
                     .status(401)
                     .json({
                         err, 
-                        message: "An error occured!"
+                        message: "Failed to authenticate!"
                     })
             } else {
                 console.log('Authentication successfull');
