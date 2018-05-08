@@ -23,12 +23,21 @@ module.exports.registerUser = function(req, res) {
             password: bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10)) 
         }, function(err, user) {
             if(err) {
-                res
-                    .status(400)
-                    .json({
-                        err, 
-                        message: "An error occured!"
-                    })
+                if(err.errmsg != null) {
+                    res
+                        .status(400)
+                        .json({
+                            err, 
+                            message: "Email already exists!"
+                        })
+                } else {
+                    res
+                        .status(400)
+                        .json({
+                            err, 
+                            message: "An error occured!"
+                        })
+                }
             } else {
                 res
                     .status(201)

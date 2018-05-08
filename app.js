@@ -11,13 +11,16 @@ app.set('port', 3000);
 
 app.use(cors());
 
+app.use(bodyParser.urlencoded({ extended: false }));
+
+app.use(bodyParser.json());
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(function(req, res, next) {
     console.log(req.method, req.url);
     next();
 });
-app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use('/api', routes);
 

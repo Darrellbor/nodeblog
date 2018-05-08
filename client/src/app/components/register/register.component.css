@@ -1,0 +1,40 @@
+.main {
+    min-height: 300px;
+}
+
+.pre-back {
+    margin-top: 50px;
+    min-height: 250px;
+    width: 250px;
+}
+
+.register-form {
+    min-height: 300px;
+    border: 1px solid #efefef;
+    margin-left: 50px;
+    margin-top: -200px;
+    margin-bottom: 20px;
+    background-color: #fff;
+    padding: 30px;
+}
+
+.login_alert {
+    background-color: #f2edda;
+    padding: 7px;
+    font-size: .9em;
+    margin-bottom: 20px;
+    display: inline-block;
+    animation: 2s loginAni forwards; 
+}
+
+@keyframes loginAni {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
