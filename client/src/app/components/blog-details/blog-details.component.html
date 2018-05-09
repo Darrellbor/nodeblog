@@ -1,0 +1,19 @@
+<div class="main">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="blog-post">
+          <h2 class="blog-post-title">{{ blog?.title }}</h2>
+          <p class="blog-post-meta">Posted {{ blog?.createdOn | date: "dd MMMM yyyy"}} by {{ blog?.author.name }}</p>
+          <p>{{ blog?.preview }}</p> <hr>
+          <p class="blog-post-content">{{ blog?.content }}</p><hr>
+          <p>
+            <a *ngIf="!authService.notAuthorized()" (click)="likeBlog()" class="blog-like" title="Like blog">
+              <fa name="fas fa-thumbs-up"></fa>
+            </a> Likes: {{ blog?.totalLikes }}</p><hr>
+        </div>
+      </div>
+      <div class="col-md-4"></div>
+    </div>
+  </div>
+</div>
