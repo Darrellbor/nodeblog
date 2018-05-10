@@ -8,6 +8,7 @@ import { Blog } from '../models/Blog';
 export class BlogResolverService {
 
     blogVariants:Blog[] = [];
+    blogVariantsOut:Blog[] = [];
 
     getBlogs() {
         this.blogService.getAllBlogs("api/blogs?sort=-totalLikes&count=1")
@@ -35,7 +36,9 @@ export class BlogResolverService {
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) { 
     this.getBlogs();
-    return this.blogVariants;
+    this.blogVariantsOut = this.blogVariants;
+    this.blogVariants = [];
+    return this.blogVariantsOut;
   }
 
 }

@@ -1041,6 +1041,7 @@ var BlogResolverService = (function () {
         this.blogService = blogService;
         this.router = router;
         this.blogVariants = [];
+        this.blogVariantsOut = [];
     }
     BlogResolverService.prototype.getBlogs = function () {
         var _this = this;
@@ -1063,7 +1064,9 @@ var BlogResolverService = (function () {
     };
     BlogResolverService.prototype.resolve = function (route, state) {
         this.getBlogs();
-        return this.blogVariants;
+        this.blogVariantsOut = this.blogVariants;
+        this.blogVariants = [];
+        return this.blogVariantsOut;
     };
     return BlogResolverService;
 }());
