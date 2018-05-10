@@ -3,8 +3,9 @@ import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 import { FlashMessagesModule } from 'angular2-flash-messages';
-
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { AppRoutingModule } from './app-routing.module';
+
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './components/home/home.component';
@@ -18,8 +19,8 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { BlogDetailsComponent } from './components/blog-details/blog-details.component';
-import { AddUpComponent } from './add-up/add-up.component';
-import { SideBarComponent } from './side-bar/side-bar.component';
+import { AddUpComponent } from './components/add-up/add-up.component';
+import { SideBarComponent } from './components/side-bar/side-bar.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { SideBarComponent } from './side-bar/side-bar.component';
     BrowserModule,
     HttpModule,
     FormsModule,
+    AngularFontAwesomeModule,
     FlashMessagesModule.forRoot(),
     AppRoutingModule
   ],

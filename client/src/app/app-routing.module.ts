@@ -10,10 +10,12 @@ import { LoginComponent } from './components/login/login.component'
 import { RegisterComponent } from './components/register/register.component'
 import { BlogDetailsComponent } from './components/blog-details/blog-details.component'
 import { ProfileComponent } from './components/profile/profile.component'
+import { AddUpComponent } from './components/add-up/add-up.component'
 
 const routes: Routes = [
    { path: '', component: HomeComponent, resolve: { blogs: BlogResolverService } },
    { path: 'dashboard', component: ProfileComponent, canActivate: [AuthGuard] },
+   { path: 'addup', component: AddUpComponent, canActivate: [AuthGuard] },
    { path: 'login', component: LoginComponent, canActivate: [NotAuthGuard] },
    { path: 'register', component: RegisterComponent, canActivate: [NotAuthGuard] },
    { path: 'blog/:id', component: BlogDetailsComponent }

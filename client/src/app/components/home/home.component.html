@@ -19,7 +19,7 @@
   <div class="col-md-6 px-0" *ngFor="let blog of blogs[0]">
     <h1 class="display-4 font-italic">{{ blog.title }}</h1>
     <p class="lead my-3">{{ blog.preview }}</p>
-    <p class="lead mb-0"><a href="#" class="text-white font-weight-bold">Continue reading...</a></p>
+    <p class="lead mb-0"><a href="#" class="text-white font-weight-bold" [routerLink]="['/blog', blog._id]">Continue reading...</a></p>
   </div>
 </div>
 
@@ -33,7 +33,7 @@
         </h3>
         <div class="mb-1 text-muted">{{ blog.createdOn | date: "MMMM yy"}}</div>
         <p class="card-text mb-auto">{{ blog.preview }}</p>
-        <a href="#">Continue reading</a>
+        <a href="#" [routerLink]="['/blog', blog._id]">Continue reading</a>
       </div>
       <div class="bg-dark card-img-right flex-auto d-none d-lg-block" style="height: 250px; width: 250px;"></div>
     </div>
@@ -47,7 +47,7 @@
         </h3>
         <div class="mb-1 text-muted">{{ blog.createdOn | date: "MMMM yy"}}</div>
         <p class="card-text mb-auto">{{ blog.preview }}</p>
-        <a href="#">Continue reading</a>
+        <a href="#" [routerLink]="['/blog', blog._id]">Continue reading</a>
       </div>
       <div class="bg-dark card-img-right flex-auto d-none d-lg-block" style="height: 250px; width: 250px;"></div>
     </div>
@@ -61,7 +61,7 @@
             <h3><a href="#" class="text-dark">{{ blog.title }}</a></h3>
             <span class="text-muted">{{ blog.createdOn | date: "MMMM yy" }}</span><br>
             <p>{{ blog.content }}</p><br>
-            <a href="#">Continue Reading...</a>
+            <a href="#" [routerLink]="['/blog', blog._id]">Continue Reading...</a>
           </div>
         </div><!-- /.blog-main -->
 
