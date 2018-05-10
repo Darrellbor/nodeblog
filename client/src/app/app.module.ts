@@ -40,7 +40,7 @@ import { SideBarComponent } from './components/side-bar/side-bar.component';
     HttpModule,
     FormsModule,
     AngularFontAwesomeModule,
-    FlashMessagesModule.forRoot(),
+    FlashMessagesModule,
     AppRoutingModule
   ],
   providers: [Title, Meta, BlogService, AuthService, BlogResolverService, AuthGuard, NotAuthGuard],
